@@ -27,17 +27,11 @@ Route::get('/visimisi', function () {
     return view('visimisi');
 });
 
-Route::get('/internal', function () {
-    return view('internal');
-});
+Route::get('/internal','IndexController@internal');
 
-Route::get('/networking', function () {
-    return view('networking');
-});
+Route::get('/networking','IndexController@networking');
 
-Route::get('/sdd', function () {
-    return view('sdd');
-});
+Route::get('/sdd','IndexController@sdd');
 
 Route::get('/artikel', function () {
     return view('artikel');

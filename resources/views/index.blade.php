@@ -209,7 +209,7 @@ URL: http://FreeHTML5.co
 					<div class="overlay"></div>
 				</div>
 				
-				<p style="text-align:center;">{{substr($keg2->deskripsi,0,500)}}...<a href="/artikel/{{$keg2->id}}">Baca Selengkapnya</a></p>
+				<p style="text-align:center;">{{substr($keg2->deskripsi,0,50)}}...<a href="/artikel/{{$keg2->id}}">Baca Selengkapnya</a></p>
 			</div>
 		@endforeach
 		</div>
