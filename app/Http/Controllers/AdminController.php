@@ -27,6 +27,7 @@ class AdminController extends Controller
         $sumsuratkeluar = SuratKeluar::all()->count('nama_kegiatan');
         $sumpemasukan = Pemasukan::all()->sum('jumlah_pemasukan');
         $sumpengeluaran = Pengeluaran::all()->sum('jumlah_pengeluaran');
+        $sumtotaluang = $sumpemasukan-$sumpengeluaran;
         $sumbarang = InventarisBarang::all()->count('nama_barang');
         return view('admin/admin')
         ->with(compact('sumanggotainti'))
@@ -37,6 +38,7 @@ class AdminController extends Controller
         ->with(compact('sumsuratkeluar'))
         ->with(compact('sumpemasukan'))
         ->with(compact('sumpengeluaran'))
+        ->with(compact('sumtotaluang'))
         ->with(compact('sumbarang'))
         ->with(compact('sumpurna'));
     }

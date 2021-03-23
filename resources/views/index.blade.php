@@ -159,9 +159,14 @@ URL: http://FreeHTML5.co
 					<div class="col-md-4">
 					</div>
 					<div class="slide-content">
-						<img class="mySlides" style="width:90%" src="https://hmjti.akakom.ac.id/assets/img/foto/small-slide-5.jpg">
-						<img class="mySlides" style="width:90%"src="https://hmjti.akakom.ac.id/assets/img/foto/small-slide-8.JPG">
-						<img class="mySlides" style="width:90%"src="https://hmjti.akakom.ac.id/assets/img/foto/small-slide-12.jpeg">
+					@foreach($kegiatan as $keg)
+					<?php 
+					$decode = json_decode($keg->foto_kegiatan);
+					$foto = array_slice($decode, 0,1);
+					foreach ($foto as $gambar){ ?>
+						<img class="mySlides" style="width:90%" src="{{asset('/foto_kegiatan/'.$gambar) }}">
+					<?php } ?>
+					@endforeach
 					</div>
 					<hr>
 					<div class='feature-center animate-box'>
@@ -192,27 +197,21 @@ URL: http://FreeHTML5.co
 		</div>
 
 		<div class="row animate-box">
+		@foreach($kegiatan2 as $keg2)
 			<div class="col-md-4">
-				<h2 style="text-align:center;">Judul Kegiatan</h2>
-				<div class="gtco-video gtco-video-sm gtco-bg" style="background-image: url({{asset('assets/images/img_1.jpg')}}); ">
+				<h2 style="text-align:center;">{{$keg2->nama_kegiatan}}</h2>
+				<?php 
+					$decode = json_decode($keg2->foto_kegiatan);
+					$foto = array_slice($decode, 0,1);
+					foreach ($foto as $gambar){ ?>
+					<div class="gtco-video gtco-video-sm gtco-bg" style="background-image: url({{asset('/foto_kegiatan/'.$gambar) }}); ">
+					<?php } ?>
 					<div class="overlay"></div>
 				</div>
-				<p style="text-align:center;">deskripsi kegiatan</p>
+				
+				<p style="text-align:center;">{{substr($keg2->deskripsi,0,500)}}...<a href="/artikel/{{$keg2->id}}">Baca Selengkapnya</a></p>
 			</div>
-			<div class="col-md-4">
-				<h2 style="text-align:center;">Judul Kegiatan</h2>
-				<div class="gtco-video gtco-video-sm gtco-bg" style="background-image: url({{asset('assets/images/img_1.jpg')}}); ">
-					<div class="overlay"></div>
-				</div>
-				<p style="text-align:center;">deskripsi kegiatan</p>
-			</div>
-			<div class="col-md-4">
-				<h2 style="text-align:center;">Judul Kegiatan</h2>
-				<div class="gtco-video gtco-video-sm gtco-bg" style="background-image: url({{asset('assets/images/img_1.jpg')}}); ">
-					<div class="overlay"></div>
-				</div>
-				<p style="text-align:center;">deskripsi kegiatan</p>
-			</div>
+		@endforeach
 		</div>
 		<div class='feature-center animate-box'>
 		<div class="slide-center">

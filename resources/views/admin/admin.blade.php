@@ -400,6 +400,20 @@
             </div>
           </div>
           <!-- ./col -->
+          <div class="col-lg-3 col-6">
+           <!-- small box -->
+           <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$sumtotaluang}}</h3>
+                <p>Total Kas</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-cash"></i>
+              </div>
+              <a href="/admin/pemasukan" class="small-box-footer">Lebih Rinci <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
         </div> 
          <!-- Row Pemasukan Dan Pengeluaran --> 
       </div><!-- /.container-fluid -->
