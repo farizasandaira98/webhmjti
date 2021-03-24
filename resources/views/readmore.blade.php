@@ -75,6 +75,7 @@ URL: http://FreeHTML5.co
                   <li><a href="/profil">Profil</a></li>
                   <li><a href="/sejarah">Sejarah</a></li>
                   <li><a href="/visimisi">Visi - Misi</a></li>
+                  <li><a href="/ph">Pengurus Harian</a></li>
                 </ul>
               </li>
               <li class="has-dropdown">
@@ -85,6 +86,7 @@ URL: http://FreeHTML5.co
                   <li><a href="/sdd">Skill Development Division</a></li>
                 </ul>
               </li>
+              <li><a href="/kegiatan">Kegiatan</a></li>
               <li class = "active"><a href="/artikel">Artikel</a></li>
               <li><a href="/galeri">Galeri</a></li>
               <li><a href="/kontak">Kontak Kami</a></li>

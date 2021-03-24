@@ -75,6 +75,7 @@
                 <li><a href="/profil">Profil</a></li>
                 <li><a href="/sejarah">Sejarah</a></li>
                 <li><a href="/visimisi">Visi - Misi</a></li>
+                <li><a href="/ph">Pengurus Harian</a></li>
               </ul>
             </li>
             <li class="has-dropdown active">
@@ -85,6 +86,7 @@
                 <li class = "active-dropdown"><a href="/sdd">Skill Development Division</a></li>
               </ul>
             </li>
+            <li><a href="/kegiatan">Kegiatan</a></li>
             <li><a href="/artikel">Artikel</a></li>
             <li><a href="/galeri">Galeri</a></li>
             <li><a href="/kontak">Kontak Kami</a></li>
@@ -128,33 +130,29 @@
 		</div>
 
 		<div class="row animate-box">
+		@foreach($kegiatan as $keg2)
 			<div class="col-md-4">
-				<h2 style="text-align:center;">Judul Kegiatan</h2>
-				<div class="gtco-video gtco-video-sm gtco-bg" style="background-image: url({{asset('assets/images/img_1.jpg')}}); ">
+				<h2 style="text-align:center;">{{$keg2->nama_kegiatan}}</h2>
+				<?php 
+					$decode = json_decode($keg2->foto_kegiatan);
+					$foto = array_slice($decode, 0,1);
+					foreach ($foto as $gambar){ ?>
+					<div class="gtco-video gtco-video-sm gtco-bg" style="background-image: url({{asset('/foto_kegiatan/'.$gambar) }}); ">
+					<?php } ?>
 					<div class="overlay"></div>
 				</div>
-				<p style="text-align:center;">deskripsi kegiatan</p>
+				
+				<p style="text-align:center;">{{substr($keg2->deskripsi,0,50)}}...<a href="/artikel/{{$keg2->id}}">Baca Selengkapnya</a></p>
 			</div>
-			<div class="col-md-4">
-				<h2 style="text-align:center;">Judul Kegiatan</h2>
-				<div class="gtco-video gtco-video-sm gtco-bg" style="background-image: url({{asset('assets/images/img_1.jpg')}}); ">
-					<div class="overlay"></div>
-				</div>
-				<p style="text-align:center;">deskripsi kegiatan</p>
-			</div>
-			<div class="col-md-4">
-				<h2 style="text-align:center;">Judul Kegiatan</h2>
-				<div class="gtco-video gtco-video-sm gtco-bg" style="background-image: url({{asset('assets/images/img_1.jpg')}}); ">
-					<div class="overlay"></div>
-				</div>
-				<p style="text-align:center;">deskripsi kegiatan</p>
-			</div>
+		@endforeach
 		</div>
+		<div class='feature-center animate-box'>
 		<div class="slide-center">
-			<a href="/index">
+			<a href="/kegiatan">
 		<button class="btn btn-primary btn-outline">Lihat Kegiatan Lainya</button>
 		</a>
 		</div>
+	</div>
 	</div>
 </div>
 <footer id="gtco-footer" role="contentinfo">

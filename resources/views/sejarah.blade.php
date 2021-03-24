@@ -75,6 +75,7 @@
                 <li><a href="/profil">Profil</a></li>
                 <li class = "active-dropdown"><a href="/sejarah">Sejarah</a></li>
                 <li><a href="/visimisi">Visi - Misi</a></li>
+                <li><a href="/ph">Pengurus Harian</a></li>
               </ul>
             </li>
             <li class="has-dropdown">
@@ -85,6 +86,7 @@
                 <li><a href="/sdd">Skill Development Division</a></li>
               </ul>
             </li>
+            <li><a href="/kegiatan">Kegiatan</a></li>
             <li><a href="/artikel">Artikel</a></li>
             <li><a href="/galeri">Galeri</a></li>
             <li><a href="/kontak">Kontak Kami</a></li>
