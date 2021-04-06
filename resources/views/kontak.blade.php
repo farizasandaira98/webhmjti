@@ -73,7 +73,7 @@
                 <li><a href="/profil">Profil</a></li>
                 <li><a href="/sejarah">Sejarah</a></li>
                 <li><a href="/visimisi">Visi - Misi</a></li>
-                <li><a href="/ph">Pengurus Harian</a></li>
+                <li><a href="/bukuanggota">Buku Anggota</a></li>
               </ul>
             </li>
             <li class="has-dropdown">
@@ -154,10 +154,7 @@
 
 					<div class="gtco-contact-info">
             <h2>Alamat</h2>
-						<ul>
-							<li class="address"><a href="https://goo.gl/maps/XHyjaxorpwHgcYwb8" target="_blank">Jl.Raya Janti No 143
-            Karang Jambe, Yogyakarta</a></li>
-						</ul>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15811.87019181177!2d110.4070861!3d-7.7932607!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x82002af417151940!2sHMJTI%20STMIK%20Akakom%20Yogyakarta!5e0!3m2!1sen!2sid!4v1617446737515!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 					</div>
           <div class="gtco-contact-info">
             <h2>Kontak Kami</h2>
@@ -172,7 +169,6 @@
 
 		</div>
 	</div>
-
 	<footer id="gtco-footer" role="contentinfo">
   <div class="gtco-container">
     <div class="row row-pb-md">

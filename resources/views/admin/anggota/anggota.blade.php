@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/jqvmap/jqvmap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/admin/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin/dist/css/cssanggota.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Daterange picker -->
@@ -253,8 +254,8 @@
       <a href="/admin/anggota/cetak" class="btn btn-danger">Cetak Data Anggota</a>
       </br></br>
       <div class="card">
-              <div class="card-body">
-                <table class="table table-bordered">
+        <div class="card-body">
+                <table>
                   <thead>
                     <tr style="text-align: center;">
                       <th>No</th>
@@ -267,17 +268,17 @@
                   @foreach($anggota as $ang)
                     <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td style="width:15%;"><a href="{{asset('/foto_anggota/'.$ang->foto) }}"><img id="myImg" src="{{asset('/foto_anggota/'.$ang->foto) }}" style='width:140px; height:160px;'></a></td>
-                    <td>
-                    NPK : {{ $ang->npk }}</br>
-                    NIM : {{ $ang->nim }}</br>
-                    Nama : {{ $ang->nama }}</br>
-                    Nama Lapangan : {{ $ang->nama_lapangan }}</br>
-                    TTL :  {{ $ang->tempat_lahir }},{{ $ang->tanggal_lahir }}</br>
-                    Alamat Domisili : {{ $ang->alamat_domisili }}</br>
-                    Alamat Tinggal : {{ $ang->alamat_tinggal }}</br>
-                    Email : {{ $ang->email }}</br>
-                    Nomor HP : {{ $ang->nomor_hp }}</br>
+                    <td style="width:13%;"><a href="{{asset('/foto_anggota/'.$ang->foto) }}"><img id="myImg" src="{{asset('/foto_anggota/'.$ang->foto) }}" style='width:140px; height:160px;'></a></td>
+                    <td style="width:70%;">
+                    <b>NPK :</b> {{ $ang->npk }}</br>
+                    <b>NIM :</b> {{ $ang->nim }}</br>
+                    <b>Nama :</b> {{ $ang->nama }}</br>
+                    <b>Nama Lapangan :</b> {{ $ang->nama_lapangan }}</br>
+                    <b>TTL :</b>  {{ $ang->tempat_lahir }},{{ $ang->tanggal_lahir }}</br>
+                    <b>Alamat Domisili :</b> {{ $ang->alamat_domisili }}</br>
+                    <b>Alamat Tinggal :</b> {{ $ang->alamat_tinggal }}</br>
+                    <b>Email :</b> {{ $ang->email }}</br>
+                    <b>Nomor HP :</b> {{ $ang->nomor_hp }}</br>
                     <?php
                     $stat = $ang->id_status;
                     if ($stat == '1') {
@@ -285,11 +286,11 @@
                     }elseif ($stat == '2'){
                       $status = "Anggota Inti";
                     }
-                    echo "Status Keanggotaan : ".$status." </br>"
+                    echo "<b>Status Keanggotaan :</b> ".$status." </br>"
                     ?>
-                    Status Keaktifan : {{ $ang->status_keaktifan }}</br>
+                    <b>Status Keaktifan :</b> {{ $ang->status_keaktifan }}</br>
                     </td>
-                    <td style="width:15%;">
+                    <td>
                       <a href="/admin/anggota/edit/{{ $ang->id }}" class="btn btn-warning" style="width:100%;">Edit</a></br></br>
                       <a href="/admin/anggota/hapus/{{ $ang->id }}" class="btn btn-danger" style="width:100%;">Hapus</a>
                     </td>
@@ -298,11 +299,11 @@
                   </tbody>
                 </table>
               </div>
+            </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
               {{ $anggota->links() }}
               </div>
-            </div>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

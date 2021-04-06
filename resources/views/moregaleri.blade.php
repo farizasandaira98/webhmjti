@@ -48,20 +48,6 @@ URL: http://FreeHTML5.co
 
   <!-- Modernizr JS -->
   <script src="{{asset('js/modernizr-2.6.2.min.js')}}"></script>
-  <script type="text/javascript">
-  function myFunction(imgs) {
-  // Get the expanded image
-  var expandImg = document.getElementById("expandedImg");
-  // Get the image text
-  var imgText = document.getElementById("imgtext");
-  // Use the same src in the expanded image as the image being clicked on from the grid
-  expandImg.src = imgs.src;
-  // Use the value of the alt attribute of the clickable image as text inside the expanded image
-  imgText.innerHTML = imgs.alt;
-  // Show the container element (hidden with CSS)
-  expandImg.parentElement.style.display = "block";
-}
-  </script>
   <!-- FOR IE9 below -->
   <!--[if lt IE 9]>
   <script src="js/respond.min.js"></script>
@@ -89,7 +75,7 @@ URL: http://FreeHTML5.co
                   <li><a href="/profil">Profil</a></li>
                   <li><a href="/sejarah">Sejarah</a></li>
                   <li><a href="/visimisi">Visi - Misi</a></li>
-                  <li><a href="/ph">Pengurus Harian</a></li>
+                  <li><a href="/bukuanggota">Buku Anggota</a></li>
                 </ul>
               </li>
               <li class="has-dropdown">
@@ -128,42 +114,29 @@ URL: http://FreeHTML5.co
       <div class="gtco-container">
         <div class="row animate-box">
           <div class="artikel">
-              <h2 class="judul-moregaleri">Judul Foto Nya Entar</h2>
+              <h2 class="judul-moregaleri">{{$kegiatan->nama_kegiatan}}</h2>
+              <p>
+              <small class="text-muted">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
+                  Ditulis pada <b>{{$kegiatan->tanggal_kegiatan}}</b>                                   <br>
+                  <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;
+                  Tempat Kegiatan : <b>{{$kegiatan->tempat_kegiatan}}</b></a>
+              </small>
+              </p>
               <hr>
 
             <!-- The grid: four columns -->
-  <div class="row">
-    <div class="column">
-      <img src="https://hmjti.akakom.ac.id/assets/img/default-placeholder-300x300.png" alt="Nature" onclick="myFunction(this);">
-    </div>
-    <div class="column">
-      <img src="https://hmjti.akakom.ac.id/assets/img/default-placeholder-300x300.png" alt="Snow" onclick="myFunction(this);">
-    </div>
-    <div class="column">
-      <img src="https://hmjti.akakom.ac.id/assets/img/default-placeholder-300x300.png" alt="Mountains" onclick="myFunction(this);">
-    </div>
-    <div class="column">
-      <img src="https://hmjti.akakom.ac.id/assets/img/default-placeholder-300x300.png" alt="Lights" onclick="myFunction(this);">
-    </div>
-    <div class="column">
-      <img src="https://hmjti.akakom.ac.id/assets/img/default-placeholder-300x300.png" alt="Lights" onclick="myFunction(this);">
-    </div>
-  </div>
-<hr>
-  <!-- The expanding image container -->
-  <div class="container-galeri">
-    <!-- Close the image -->
-    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-
-    <!-- Expanded image -->
-    <img id="expandedImg" style="width : 100%">
-    
-
-    <!-- Image text -->
-    <div id="imgtext"></div>
-  </div>
-
-
+            <div class="row">
+              <?php
+              $decode = json_decode($kegiatan->foto_kegiatan);
+              $foto = array_slice($decode, 0,22);
+              foreach ($foto as $gambar){ ?>
+                <div class="column">
+                  <img data-enlargeable src="{{asset('/foto_kegiatan/'.$gambar) }}" alt="Nature" onclick="myFunction(this);" class="img-responsive img-thumbnail">
+                </div>
+              <?php } ?>
+            </div>
+          <hr>
           </div>
         </div>
       </div>
@@ -217,6 +190,28 @@ URL: http://FreeHTML5.co
 
   <!-- jQuery -->
   <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+  <script type="text/javascript">
+    $('img[data-enlargeable]').addClass('img-enlargeable').click(function(){
+      var src = $(this).attr('src');
+      var modal;
+      function removeModal(){ modal.remove(); $('body').off('keyup.modal-close'); }
+      modal = $('<div>').css({
+          background: 'RGBA(0,0,0,.5) url('+src+') no-repeat center',
+          backgroundSize: 'contain',
+          width:'100%', height:'100%',
+          position:'fixed',
+          zIndex:'10000',
+          top:'0', left:'0',
+          cursor: 'zoom-out'
+      }).click(function(){
+          removeModal();
+      }).appendTo('body');
+      //handling ESC
+      $('body').on('keyup.modal-close', function(e){
+        if(e.key==='Escape'){ removeModal(); }
+      });
+  });
+  </script>
   <!-- jQuery Easing -->
   <script src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
   <!-- Bootstrap -->

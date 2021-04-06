@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/jqvmap/jqvmap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/admin/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin/dist/css/cssadmin.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Daterange picker -->
@@ -253,13 +254,13 @@
       </br></br>
       <div class="card">
               <div class="card-body">
-                <table class="table table-bordered">
+                <table>
                 <thead>
                 <tr>
-                  <th>#</th>
+                  <th>No</th>
                   <th>Nama User</th>
                   <th>Email</th>
-                  <th>OPSI</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -269,7 +270,7 @@
                   <td>{{ $ang->name }}</td>
                   <td>{{ $ang->email }}</td>
                   <td>
-                    <a href="/dataadmin/hapus/{{ $ang->id }}" class="btn btn-danger">Hapus</a>
+                    <a href="/dataadmin/hapus/{{ $ang->id }}" class="btn btn-danger" style="width:100%;">Hapus</a>
                   </td>
                 </tr>
                 @endforeach
@@ -278,7 +279,7 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
-              
+
               </div>
             </div>
       </div><!-- /.container-fluid -->

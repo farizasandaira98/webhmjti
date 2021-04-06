@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/jqvmap/jqvmap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/admin/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin/dist/css/cssartikel.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Daterange picker -->
@@ -253,7 +254,7 @@
       </br></br>
       <div class="card">
               <div class="card-body">
-                <table class="table table-bordered">
+                <table>
                   <thead>
                     <tr style="text-align: center;">
                       <th>No</th>
@@ -275,7 +276,7 @@
                     <td>{{ $ang->jenis_artikel }}</td>
                     <td><a href="{{asset('/foto_artikel/'.$ang->foto_tambahan) }}"><img id="myImg" src="{{asset('/foto_artikel/'.$ang->foto_tambahan) }}" style='width:140px; height:160px;'></a></td>
                   </td>
-                    <td style="width:15%;">
+                    <td>
                       <a href="/admin/artikel/edit/{{ $ang->id }}" class="btn btn-warning" style="width:100%;">Edit</a></br></br>
                       <a href="/admin/artikel/hapus/{{ $ang->id }}" class="btn btn-danger" style="width:100%;">Hapus</a>
                     </td>

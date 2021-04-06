@@ -75,7 +75,7 @@
                 <li><a href="/profil">Profil</a></li>
                 <li><a href="/sejarah">Sejarah</a></li>
                 <li class = "active-dropdown"><a href="/visimisi">Visi - Misi</a></li>
-                <li><a href="/ph">Pengurus Harian</a></li>
+                <li><a href="/bukuanggota">Buku Anggota</a></li>
               </ul>
             </li>
             <li class="has-dropdown">

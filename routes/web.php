@@ -33,24 +33,23 @@ Route::get('/networking','IndexController@networking');
 
 Route::get('/sdd','IndexController@sdd');
 
-Route::get('/artikel', function () {
-    return view('artikel');
-});
-Route::get('/artikel/readmore', function () {
-    return view('readmore');
-});
+Route::get('/kegiatan', 'IndexController@kegiatan');
+Route::get('/kegiatan/cari', 'IndexController@kegiatansearch');
+Route::get('/kegiatan/{id}','IndexController@kegiatanreadmore');
 
+
+Route::get('/artikel', 'IndexController@artikel');
+Route::get('/artikel/cari', 'IndexController@artikelsearch');
+Route::get('/artikel/{id}','IndexController@artikelreadmore');
+Route::get('/berita', 'IndexController@artikelberita');
+Route::get('/tutorial','IndexController@artikeltutorial');
+
+Route::get('/galeri','IndexController@galeri');
+Route::get('/galeri/cari','IndexController@galericari');
+Route::get('/galeri/moregaleri/{id}','IndexController@galerimore');
 
 Route::get('/kontak', function () {
     return view('kontak');
-});
-
-Route::get('/galeri', function () {
-    return view('galeri');
-});
-
-Route::get('/galeri/moregaleri', function () {
-    return view('moregaleri');
 });
 
 //Route Login
@@ -58,10 +57,10 @@ Route::get('login', 'AuthController@showFormLogin')->name('login');
 Route::post('login', 'AuthController@login');
 Route::get('register', 'AuthController@showFormRegister')->name('register');
 Route::post('register', 'AuthController@register');
- 
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('admin', 'AdminController@index')->name('admin');
-    
+
         //Route Anggota Di Admin
         Route::get('/admin/anggota', 'AdminAnggotaController@index');
         Route::get('/admin/anggota/tambah', 'AdminAnggotaController@tambah');
@@ -156,5 +155,3 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/adm', function () {
     return view('admin/adminite');
 });
-
-

@@ -238,7 +238,7 @@
     <section class="content">
       <div class="container-fluid">
 
-     <!-- Row Keanggotaan --> 
+     <!-- Row Keanggotaan -->
       <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -283,10 +283,10 @@
             </div>
           </div>
           <!-- ./col -->
-        </div> 
-         <!-- Row Keanggotaan --> 
+        </div>
+         <!-- Row Keanggotaan -->
 
-      <!-- Row Kegiatan Dan Artikel --> 
+      <!-- Row Kegiatan Dan Artikel -->
       <div class="row">
       <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -317,10 +317,10 @@
             </div>
           </div>
           <!-- ./col -->
-        </div> 
-         <!-- Row Kegiatan Dan Artikel --> 
+        </div>
+         <!-- Row Kegiatan Dan Artikel -->
 
-        <!-- Row Inventaris, Surat Masuk, Dan Surat Keluar --> 
+        <!-- Row Inventaris, Surat Masuk, Dan Surat Keluar -->
       <div class="row">
       <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -366,10 +366,10 @@
             </div>
           </div>
           <!-- ./col -->
-        </div> 
-         <!-- Row Inventaris, Surat Masuk, Dan Surat Keluar --> 
+        </div>
+         <!-- Row Inventaris, Surat Masuk, Dan Surat Keluar -->
 
-         <!-- Row Pemasukan Dan Pengeluaran --> 
+         <!-- Row Pemasukan Dan Pengeluaran -->
       <div class="row">
       <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -414,8 +414,8 @@
             </div>
           </div>
           <!-- ./col -->
-        </div> 
-         <!-- Row Pemasukan Dan Pengeluaran --> 
+        </div>
+         <!-- Row Pemasukan Dan Pengeluaran -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

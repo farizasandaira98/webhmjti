@@ -75,7 +75,7 @@ URL: http://FreeHTML5.co
                   <li><a href="/profil">Profil</a></li>
                   <li><a href="/sejarah">Sejarah</a></li>
                   <li><a href="/visimisi">Visi - Misi</a></li>
-                  <li><a href="/ph">Pengurus Harian</a></li>
+                  <li><a href="/bukuanggota">Buku Anggota</a></li>
                 </ul>
               </li>
               <li class="has-dropdown">
@@ -116,12 +116,14 @@ URL: http://FreeHTML5.co
           <div class="artikel">
             <div class="col-md-3 col-md-push-9">
               <h4 class="">Cari Artikel</h4>
+              <form method="get" action="/artikel/cari" enctype="multipart/form-data">
               <input style="border: none; background: none; width:80%" type="text" name="search" placeholder="Cari..." autocomplete="off">
               <button style="border: none; background: none;"><i class="icon-search"></i></button>
               <div class="hidden-lg hidden-md" style="margin-top: 5px">
-                <button type="button" class="btn btn-default btn-md btn-block" data-toggle="collapse" data-target="#list-group-kategori-artikel">
+                <button type="submit" class="btn btn-default btn-md btn-block" data-toggle="collapse" data-target="#list-group-kategori-artikel">
                   Sesuaikan Pencarian <span class="caret"></span>
                 </button>
+               </form>
               </div>
 
               <div class="marginbot-bottom30"></div>
@@ -130,63 +132,51 @@ URL: http://FreeHTML5.co
 
                   <hr>
                   <h4 class="">Kategori Artikel</h4>
-                  <a href="https://hmjti.akakom.ac.id/article" class="list-group-item">
+                  <a href="/artikel" class="list-group-item">
                     Semua Artikel
                   </a>
-                  <a href="https://hmjti.akakom.ac.id/article/information" class="list-group-item">
-                    <span class="badge">25</span> Berita                    </a>
-                    <a href="https://hmjti.akakom.ac.id/article/tutorial" class="list-group-item">
-                      <span class="badge">11</span> Tutorial &amp; Info                    </a>
-                      <a href="https://hmjti.akakom.ac.id/article/newsletter" class="list-group-item">
-                        <span class="badge">7</span> Newsletter                    </a>
-                        <a href="https://hmjti.akakom.ac.id/article/event-kegiatan" class="list-group-item">
-                          <span class="badge">19</span> Event &amp; Kegiatan                    </a>
+                  <a href="/berita" class="list-group-item">
+                    <span class="badge">{{$berita}}</span> Berita</a>
+                    <a href="/tutorial" class="list-group-item">
+                      <span class="badge">{{$tutorial}}</span> Tutorial &amp; Info</a>
                         </div>
                       </div>
                     </div>
+
                     <div class="col-md-9 col-md-pull-3">
+                    @foreach($artikel as $keg)
                       <div class="row wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                         <div class="col-sm-4">
-                          <a href="https://hmjti.akakom.ac.id/read/bazar-buku-11-22-maret-2019-132" class="">
                             <div class="post-thumbnail">
-                              <img src="https://hmjti.akakom.ac.id/uploads/article/201903131021535c8877517466c_cropped_thumb.jpg" class="img-responsive img-thumbnail">
+                                <img src="{{asset('/foto_artikel/'.$keg->foto_tambahan) }}" class="img-responsive img-thumbnail">
                             </div>
                           </a>
                         </div>
                         <div class="col-sm-8">
                           <h3 class="title">
-                            <a href="https://hmjti.akakom.ac.id/read/bazar-buku-11-22-maret-2019-132" title="Bazar Buku (11 - 22 Maret 2019)">
-                              Bazar Buku (11 - 22 Maret 2019)                                </a>
+                            <a href="/artikel/{{$keg->id}}" title="{{$keg->judul_artikel}}">
+                            {{$keg->judul_artikel}}</a>
                             </h3>
                             <small class="text-muted">
                               <span class="glyphicon glyphicon-calendar"></span>&nbsp;
-                              Ditulis pada 13 Maret 2019                                <p style="margin-top: 5px">
-                                <i class="fa fa-folder" aria-hidden="true"></i>&nbsp;
-                                <a href="https://hmjti.akakom.ac.id/article/event-kegiatan">
-                                  Event &amp; Kegiatan                                    </a>
+                              Ditulis Pada {{$keg->created_at}} <p style="margin-top: 5px">
+                                <i class="fa fa-folder" aria-hidden="true"></i>
+                                Sumber : {{$keg->sumber}}
                                 </p>
                               </small>
                               <hr style="margin: 10px 0">
                               <p class="post-read">
-                                Bazar buku yang diadakan oleh HMJ TI di Kampus STMIK Akakom...
+                                {{substr($keg->deskripsi,0,150)}}...
                               </p>
                               <p class="text-muted hidden-xs">
-                                <a href="/artikel/readmore" class="btn btn-danger">Baca Selengkapnya <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                <a href="/artikel/{{$keg->id}}" class="btn btn-danger">Baca Selengkapnya <i class="fa fa-plus" aria-hidden="true"></i></a>
                               </p>
                             </div>
                           </div>
                           <hr>
+                          @endforeach
                           <div class="pagination p1">
-                            <ul>
-                              <a href="#"><li><</li></a>
-                              <a class="is-active" href="#"><li>1</li></a>
-                              <a href="#"><li>2</li></a>
-                              <a href="#"><li>3</li></a>
-                              <a href="#"><li>4</li></a>
-                              <a href="#"><li>5</li></a>
-                              <a href="#"><li>6</li></a>
-                              <a href="#"><li>></li></a>
-                            </ul>
+                            {{$artikel->links("pagination::bootstrap-4")}}
                           </div>
                         </div>
                       </div>

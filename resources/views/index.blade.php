@@ -76,7 +76,7 @@ URL: http://FreeHTML5.co
 									<li><a href="/profil">Profil</a></li>
 									<li><a href="/sejarah">Sejarah</a></li>
 									<li><a href="/visimisi">Visi - Misi</a></li>
-									<li><a href="/ph">Pengurus Harian</a></li>
+									  <li><a href="/bukuanggota">Buku Anggota</a></li>
 								</ul>
 							</li>
 							<li class="has-dropdown">
@@ -162,11 +162,11 @@ URL: http://FreeHTML5.co
 					</div>
 					<div class="slide-content">
 					@foreach($kegiatan as $keg)
-					<?php 
+					<?php
 					$decode = json_decode($keg->foto_kegiatan);
 					$foto = array_slice($decode, 0,1);
 					foreach ($foto as $gambar){ ?>
-						<img class="mySlides" style="width:90%" src="{{asset('/foto_kegiatan/'.$gambar) }}">
+						<img class="mySlides" style="max-width:70%; max-height:500px" src="{{asset('/foto_kegiatan/'.$gambar) }}">
 					<?php } ?>
 					@endforeach
 					</div>
@@ -202,15 +202,15 @@ URL: http://FreeHTML5.co
 		@foreach($kegiatan2 as $keg2)
 			<div class="col-md-4">
 				<h2 style="text-align:center;">{{$keg2->nama_kegiatan}}</h2>
-				<?php 
+				<?php
 					$decode = json_decode($keg2->foto_kegiatan);
 					$foto = array_slice($decode, 0,1);
 					foreach ($foto as $gambar){ ?>
-					<div class="gtco-video gtco-video-sm gtco-bg" style="background-image: url({{asset('/foto_kegiatan/'.$gambar) }}); ">
+					<div class="gtco-video gtco-video-sm gtco-bg" style="background-image: url({{asset('/foto_kegiatan/'.$gambar) }});">
 					<?php } ?>
 					<div class="overlay"></div>
 				</div>
-				
+
 				<p style="text-align:center;">{{substr($keg2->deskripsi,0,50)}}...<a href="/artikel/{{$keg2->id}}">Baca Selengkapnya</a></p>
 			</div>
 		@endforeach

@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/jqvmap/jqvmap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/admin/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin/dist/css/csssuratkeluar.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Daterange picker -->
@@ -255,7 +256,7 @@
       </br></br>
       <div class="card">
               <div class="card-body">
-                <table class="table table-bordered">
+                <table>
                   <thead>
                     <tr style="text-align: center;">
                       <th>No</th>
@@ -276,7 +277,7 @@
                     <td>{{ $ang->hal }}</td>
                     <td>{{ $ang->tanggal_surat_keluar}}</td>
                     <td>{{ $ang->tujuan}}</td>
-                    <td style="width:15%;">
+                    <td>
                       <a href="/admin/suratkeluar/edit/{{ $ang->id }}" class="btn btn-warning" style="width:100%;">Edit</a></br></br>
                       <a href="/admin/suratkeluar/hapus/{{ $ang->id }}" class="btn btn-danger" style="width:100%;">Hapus</a>
                     </td>

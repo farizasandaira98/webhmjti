@@ -75,7 +75,7 @@ URL: http://FreeHTML5.co
                   <li><a href="/profil">Profil</a></li>
                   <li><a href="/sejarah">Sejarah</a></li>
                   <li><a href="/visimisi">Visi - Misi</a></li>
-                  <li><a href="/ph">Pengurus Harian</a></li>
+                    <li><a href="/bukuanggota">Buku Anggota</a></li>
                 </ul>
               </li>
               <li class="has-dropdown">
@@ -115,42 +115,44 @@ URL: http://FreeHTML5.co
         <div class="row animate-box">
           <div class="artikel">
             <div class="container">
+              <form method="get" action="/galeri/cari" enctype="multipart/form-data">
               <input style="border: none; background: none; width:80%;" type="text" name="search" placeholder="Cari Foto Kegiatan" autocomplete="off">
               <button style="border: none; background: none;"><i class="icon-search"></i></button>
-              <div class="hidden-lg hidden-md" style="margin-top: 5px">
-                <button type="button" class="btn btn-default btn-md btn-block" data-toggle="collapse" data-target="#list-group-kategori-artikel">
-                  Sesuaikan Pencarian <span class="caret"></span>
-                </button>
-              </div>
+              </form>
               <hr>
             </div>
 
-
+            @foreach($kegiatan as $keg)
             <div class="col-sm-6">
               <div class="col-sm-4">
-                <a href="https://hmjti.akakom.ac.id/gallery/view/latihan-kader-xiv-9" class="">
-                  <img src="https://hmjti.akakom.ac.id/assets/img/default-placeholder-300x300.png" class="img-responsive img-thumbnail">
+                <a href="/galeri/moregaleri/{{$keg->id}}" class="">
+                  <?php
+                  $decode = json_decode($keg->foto_kegiatan);
+                  $foto = array_slice($decode, 0,1);
+                  foreach ($foto as $gambar){ ?>
+                    <img src="{{asset('/foto_kegiatan/'.$gambar) }}" class="img-responsive img-thumbnail" style="max-width:90%">
+                  <?php } ?>
                 </a>
               </div>
               <div class="col-sm-8">
                 <h3 class="title">
-                  <a href="https://hmjti.akakom.ac.id/gallery/view/latihan-kader-xiv-9" title="Latihan Kader XIV ">
-                    Latihan Kader XIV
+                  <a href="/galeri/moregaleri/{{$keg->id}}" title="{{$keg->nama_kegiatan}}">
+                    {{$keg->nama_kegiatan}}
                   </a>
                 </h3>
                 <small class="text-muted">
                   <span class="glyphicon glyphicon-calendar"></span>&nbsp;
-                  Dibuat pada 17 Desember 2019
+                  Dibuat pada {{$keg->tanggal_kegiatan}}
                 </small>
                 <div class="marginbot-bottom10"></div>
                 <p class="text-muted hidden-xs">
-                  <a href="/galeri/moregaleri" class="btn btn-danger">Lihat Gallery &nbsp;<i class="fa fa-photo" aria-hidden="true"></i></a>
+                  <a href="/galeri/moregaleri/{{$keg->id}}" class="btn btn-danger">Lihat Gallery &nbsp;<i class="fa fa-photo" aria-hidden="true"></i></a>
                 </p>
               </div>
               <div class="clearfix"></div>
               <hr>
             </div>
-
+            @endforeach
 
           </div>
         </div>

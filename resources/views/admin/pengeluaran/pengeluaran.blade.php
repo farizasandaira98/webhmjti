@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/jqvmap/jqvmap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/admin/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin/dist/css/cssuangkeluar.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Daterange picker -->
@@ -255,7 +256,7 @@
       </br></br>
       <div class="card">
               <div class="card-body">
-                <table class="table table-bordered">
+                <table>
                   <thead>
                     <tr style="text-align: center;">
                       <th>No</th>
@@ -279,16 +280,16 @@
                     <td><a href="{{asset('/foto_nota_keluar/'.$ang->nota) }}"><img id="myImg" src="{{asset('/foto_nota_keluar/'.$ang->nota) }}" style='width:140px; height:160px;'></a></td>
                     <td>{{ $ang->periode }}</td>
                   </td>
-                    <td style="width:15%;">
+                    <td>
                       <a href="/admin/pengeluaran/edit/{{ $ang->id }}" class="btn btn-warning" style="width:100%;">Edit</a></br></br>
                       <a href="/admin/pengeluaran/hapus/{{ $ang->id }}" class="btn btn-danger" style="width:100%;">Hapus</a>
                     </td>
                     </tr>
                     @endforeach
                     <tr>
-                    
+
                     <td colspan='7'>Total Pengeluaran HMJ TI : {{ $sumpengeluaran }}</td>
-                  
+
                     </tr>
                   </tbody>
                 </table>
