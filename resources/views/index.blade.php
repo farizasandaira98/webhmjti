@@ -112,7 +112,8 @@ URL: http://FreeHTML5.co
 						</div>
 					</div>
 			</header>
-			<div id="gtco-features">
+
+			<div id="gtco-features"  style="background-image:url({{asset('assets/images/img_bg_4.jpg')}});">
 				<div class="gtco-container">
 					<div class="row animate-box">
 						<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
@@ -149,47 +150,8 @@ URL: http://FreeHTML5.co
 					</div>
 				</div>
 			</div>
-			<div id="gtco-features-2">
-				<div class="gtco-container">
-					<div class="row animate-box">
-						<div class='feature-center animate-box'>
-						<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-							<h2>Galeri</h2>
-							<p>Dokumentasi Kegiatan Yang Telah Kami Laksanakan</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-					</div>
-					<div class="slide-content">
-					@foreach($kegiatan as $keg)
-					<?php
-					$decode = json_decode($keg->foto_kegiatan);
-					$foto = array_slice($decode, 0,1);
-					foreach ($foto as $gambar){ ?>
-						<img class="mySlides" style="max-width:70%; max-height:500px" src="{{asset('/foto_kegiatan/'.$gambar) }}">
-					<?php } ?>
-					@endforeach
-					</div>
-					<hr>
-					<div class='feature-center animate-box'>
-					<div class="slide-center">
-					<button class="btn btn-primary btn-outline" onclick="plusDivs(-1)">❮ Prev</button>
-				    <button class="btn btn-primary btn-outline" onclick="plusDivs(1)">Next ❯</button>
-					</div>
-					<hr>
-					<div class='feature-center animate-box'>
-					<div class="slide-center">
-					<a href="/galeri">
-					<button class="btn btn-primary btn-outline">Lihat Galeri Lainya</button>
-		</a>
-		</div>
-	</div>
-			</div>
-			</div>
-		</div>
-	</div>
 
-<div id="gtco-services">
+<div id="gtco-features" style="background-image:url({{asset('assets/images/img_bg_5.jpg')}});">
 	<div class="gtco-container">
 		<div class="row animate-box">
 			<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
@@ -211,7 +173,7 @@ URL: http://FreeHTML5.co
 					<div class="overlay"></div>
 				</div>
 
-				<p style="text-align:center;">{{substr($keg2->deskripsi,0,50)}}...<a href="/artikel/{{$keg2->id}}">Baca Selengkapnya</a></p>
+				<p style="text-align:center;">{{substr($keg2->deskripsi,0,50)}}...<a href="/kegiatan/{{$keg2->id}}">Baca Selengkapnya</a></p>
 			</div>
 		@endforeach
 		</div>
@@ -225,7 +187,7 @@ URL: http://FreeHTML5.co
 	</div>
 </div>
 
-<div id="gtco-testimonial">
+<div id="gtco-testimonial" style="background-image:url({{asset('assets/images/img_bg_6.jpg')}});">
 	<div class="gtco-container">
 		<div class="row animate-box">
 			<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
@@ -321,34 +283,6 @@ URL: http://FreeHTML5.co
 
 <!-- jQuery -->
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
-<script type="text/javascript">
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" slide-red", "");
-  }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " slide-red";
-}
-</script>
 <!-- jQuery Easing -->
 <script src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
 <!-- Bootstrap -->

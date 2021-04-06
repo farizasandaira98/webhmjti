@@ -6,14 +6,13 @@ use Illuminate\Http\Request;
 
 use App\DataKegiatan;
 use App\Artikel;
+use App\DataAnggota;
 class IndexController extends Controller
 {
     public function index()
     {
-        $kegiatan = DataKegiatan::all();
         $kegiatan2 = DataKegiatan::orderBy('tanggal_kegiatan', 'desc')->paginate(3);
         return view('index')
-        ->with(compact('kegiatan'))
         ->with(compact('kegiatan2'));
     }
     public function internal()
@@ -129,5 +128,22 @@ class IndexController extends Controller
         $kegiatan = DataKegiatan::where('id', $id)->first();
         return view('moregaleri')
         ->with(compact('kegiatan'));
+    }
+    public function bukuanggota()
+    {
+        $anggota = DataAnggota::paginate(3);
+        return view('bukuanggota')
+        ->with(compact('anggota'));
+    }
+    public function bukuanggotacari(Request $request)
+    {
+        $cari = $request->search;
+        $anggota = DataAnggota::where('nama','LIKE','%'.$cari.'%')
+        ->orWhere('nim','LIKE','%'.$cari.'%')
+        ->orWhere('npk','LIKE','%'.$cari.'%')
+        ->orWhere('tempat_lahir','LIKE','%'.$cari.'%')
+        ->orWhere('status_keaktifan','LIKE','%'.$cari.'%')
+        ->paginate(5);
+        return view('/bukuanggota', ['anggota' => $anggota]);
     }
 }

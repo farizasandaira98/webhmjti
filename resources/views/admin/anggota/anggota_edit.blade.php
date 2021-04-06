@@ -71,7 +71,7 @@
                         @endif
 
                     </div>
-                    
+
                     <div class="form-group">
                         <label>Tempat Lahir</label>
                         <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir .."
@@ -148,10 +148,10 @@
                 </div>
                 </br>
 
-                <div class="input-group">
+                <label>Input Foto Anggota</label>
+                <div class="input-group control-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="foto" accept=".jpg,.png,.jpeg">
-                        <label class="custom-file-label" for="exampleInputFile">Pilih Foto...</label>
+                        <input type="file" class="form-control" name="foto" accept=".jpg,.png,.jpeg">
                         @if($errors->has('foto'))
                         <div class="text-danger">
                         {{ $errors->first('foto')}}
@@ -163,7 +163,7 @@
 
                     <div class="form-group">
                         <label>Status Anggota</label>
-                        <select class="form-control" id="id_status" 
+                        <select class="form-control" id="id_status"
                         name="id_status">
                         @foreach($stat as $stat)
                         <option value="{{$stat->id}}">{{$stat->status_anggota}}</option>
@@ -198,7 +198,7 @@
                 @endif
 
             </div>
-            
+
             </br>
             <div class="form-group">
                 <input type="submit" class="btn btn-danger" value="Simpan">

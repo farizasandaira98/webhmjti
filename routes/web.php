@@ -48,6 +48,9 @@ Route::get('/galeri','IndexController@galeri');
 Route::get('/galeri/cari','IndexController@galericari');
 Route::get('/galeri/moregaleri/{id}','IndexController@galerimore');
 
+Route::get('/bukuanggota','IndexController@bukuanggota');
+Route::get('/bukuanggota/cari','IndexController@bukuanggotacari');
+
 Route::get('/kontak', function () {
     return view('kontak');
 });
@@ -149,9 +152,4 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/admin/dataadmin/register', 'AuthController@register');
 
     Route::get('logout', 'AuthController@logout')->name('logout');
-});
-
-
-Route::get('/adm', function () {
-    return view('admin/adminite');
 });

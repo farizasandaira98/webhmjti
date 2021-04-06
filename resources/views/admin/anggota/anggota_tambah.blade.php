@@ -67,7 +67,7 @@
                         @endif
 
                     </div>
-                    
+
                     <div class="form-group">
                         <label>Tempat Lahir</label>
                         <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir ..">
@@ -143,7 +143,7 @@
                 <label>Input Foto Anggota</label>
                 <div class="input-group control-group">
                     <div class="custom-file">
-                        <input type="file" class="form-control" name="foto" accept=".jpg,.png,.jpeg">
+                        <input type="file" class="form-control" name="foto" accept=".jpg,.png,.jpeg" id="file">
                         @if($errors->has('foto'))
                         <div class="text-danger">
                         {{ $errors->first('foto')}}
@@ -155,7 +155,7 @@
 
                     <div class="form-group">
                         <label>Status Anggota</label>
-                        <select class="form-control" id="id_status" 
+                        <select class="form-control" id="id_status"
                         name="id_status">
                         @foreach($stat as $stat)
                         <option value="{{$stat->id}}">{{$stat->status_anggota}}</option>
@@ -190,7 +190,7 @@
                 @endif
 
             </div>
-            
+
             </br>
             <div class="form-group">
                 <input type="submit" class="btn btn-danger" value="Simpan">
@@ -201,5 +201,16 @@
     </div>
 </div>
 </div>
+<script type="text/javascript">
+var uploadField = document.getElementById("file");
+
+uploadField.onchange = function() {
+    if(this.files[0].size > 2000000){
+       alert("File Max Is 2MB");
+       this.value = "";
+    };
+};
+</script>
 </body>
+
 </html>
